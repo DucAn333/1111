@@ -1,6 +1,6 @@
-import {expect, test } from '../LIB/fixture/index';
+import {expect, test } from '../Libary/fixture/index';
 import { LinkURL, Account } from '../Data/account';
-import { LoginPage } from '../LIB/page/Login';
+import { LoginPage } from '../Libary/page/Login';
 
 
 test.describe('Login and forget password', () => {
