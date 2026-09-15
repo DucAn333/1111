@@ -1,20 +1,41 @@
 import { test as baseTest } from '@playwright/test';
-export  { expect} from '@playwright/test';
-import {  LoginPage } from '../page/Login';
+export  { expect } from '@playwright/test';
+import { LoginPage } from '../page/Login';
 import { LoginHelper } from '../helper/Login';
+import { getLinkHelper } from '../helper/goToLink';
+import { ForgotPassword_page } from '../page/forgetPass';
+import { requestPasswordHelper } from '../helper/requestPass';
 
 export type indexFixture = {
 loginPage: LoginPage;
+forgotPasswordPage: ForgotPassword_page ;
 loginHelper: LoginHelper;
+getLinkHelper: getLinkHelper;
+forgotPasswordHelper: requestPasswordHelper;
 }
 export const test = baseTest.extend<indexFixture>({
+    // URL
+    getLinkHelper: async ({ page }, use) => {
+        const linkHelper = new getLinkHelper(page);
+        await use(linkHelper);
+    },
+    // page
     loginPage: async ({ page }, use) => {
         const loginPage = new LoginPage(page);
         await use(loginPage);
     },
+    forgotPasswordPage: async ({ page }, use) => {
+        const forgotPasswordPage = new ForgotPassword_page(page);
+        await use(forgotPasswordPage);
+    },
+    // helper
     loginHelper: async ({ loginPage }, use) => {
         const loginHelper = new LoginHelper(loginPage);
         await use(loginHelper);
+    },
+    forgotPasswordHelper: async ({ forgotPasswordPage }, use) => {
+        const forgotPasswordHelper = new requestPasswordHelper(forgotPasswordPage);
+        await use(forgotPasswordHelper);
     },
 }
 );
