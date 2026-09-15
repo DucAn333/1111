@@ -11,4 +11,9 @@ export class LoginHelper {
         await this.loginPage.passwordInput.pressSequentially(Account[0].password);
         await this.loginPage.loginButton.click({timeout: 5000});
     }
+    async ForgetPassword(): Promise<void> {
+        await this.loginPage.forgotPasswordLink.click({timeout: 5000});
+        
+    }
+
 }
