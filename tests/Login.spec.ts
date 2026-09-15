@@ -19,5 +19,5 @@ test('Login', async ({ loginHelper, loginPage , getLinkHelper}) => {
     await forgotPasswordHelper.fillEmailToRequest();
     await expect(forgotPasswordPage.reset_success_message).toBeVisible({timeout: 5000});
     
-    });  
+  });  
 });
