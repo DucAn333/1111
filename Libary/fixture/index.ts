@@ -1,5 +1,4 @@
 import { test as baseTest } from '@playwright/test';
-export  { expect } from '@playwright/test';
 import { LoginPage } from '../page/Login';
 import { LoginHelper } from '../helper/Login';
 import { getLinkHelper } from '../helper/goToLink';
@@ -7,6 +6,8 @@ import { ForgotPassword_page } from '../page/forgetPass';
 import { requestPasswordHelper } from '../helper/requestPass';
 import { MainMenu_page } from '../page/mainMenu';
 import { choseMenuHelper } from '../helper/choseMenu';
+export  { expect } from '@playwright/test';
+
 
 export type indexFixture = {
 loginPage: LoginPage;

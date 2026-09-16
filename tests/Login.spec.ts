@@ -1,6 +1,5 @@
 import {expect, test } from '../Libary/fixture/index';
 import Data from '../Data/login.json';
-import { LoginHelper } from '../Libary/helper/Login';
 import { LinkURL, Account } from '../Data/account';
 
 
@@ -20,6 +19,7 @@ test.beforeEach(async ({ page , getLinkHelper}) => {
       }
     });
     await getLinkHelper.goto_URL();
+    await expect(page).toHaveURL(LinkURL);
     });
 for (const dataLogin of Data.login_data) {
   test(`${dataLogin.id} - ${dataLogin.description}`, async ({loginHelper, loginPage }) => {
@@ -37,7 +37,7 @@ test('Log Out', async ({ loginPage, forgotPasswordPage, mainMenuPage , loginHelp
     //await getLinkHelper.goto_URL();
     await loginHelper.login(Account[0].username , Account[0].password);
     await expect(forgotPasswordPage.logo_image).not.toBeVisible({timeout: 5000});
-    await mainMenuPage.user_dropdown_menu.click({timeout:5000});
+    await mainMenuPage.user_dropdown_menu.click();
     await mainMenuPage.dropdown_item_logout.click({timeout:5000});
     await expect(loginPage.loginButton).toBeVisible();
     
