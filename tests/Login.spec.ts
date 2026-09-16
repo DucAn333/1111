@@ -3,7 +3,7 @@ import Data from '../Data/login.json';
 import { LinkURL, Account } from '../Data/account';
 
 
-test.describe('Login and forget password', () => {
+test.describe('Login', () => {
 test.beforeEach(async ({ page , getLinkHelper}) => {
     await page.route('**/*', (route) => {
       const url = route.request().url();
@@ -32,8 +32,15 @@ for (const dataLogin of Data.login_data) {
     }
 
 });
-}
-test('Log Out', async ({ loginPage, forgotPasswordPage, mainMenuPage , loginHelper, getLinkHelper }) => {
+  }
+test('TC_LOGIN_09 - Sau login, kiểm tra đúng tên user hiển thị', async ({ mainMenuPage , loginHelper }) => {
+    await loginHelper.login(Account[0].username , Account[0].password);
+    await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
+  });
+});
+
+test.describe('Logout and Forgot Password', () => {
+test('TC_LOGIN_11 - Đăng xuất tài khoản', async ({ loginPage, forgotPasswordPage, mainMenuPage , loginHelper }) => {
     //await getLinkHelper.goto_URL();
     await loginHelper.login(Account[0].username , Account[0].password);
     await expect(forgotPasswordPage.logo_image).not.toBeVisible({timeout: 5000});
@@ -51,7 +58,4 @@ test('Forget Password', async ({ loginPage, forgotPasswordPage ,forgotPasswordHe
     // web khong phan hoi khi nhan lay lai mat khau, nen khong the kiem tra duoc message
     
   });
-  
-
-
  });
