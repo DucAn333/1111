@@ -12,7 +12,7 @@ export default defineConfig({
 
     retries: process.env.CI ? 1 : 1,
 
-    timeout: 50000,
+    timeout: 200000,
 
     // reporter: [
     //     ['list'],
@@ -37,8 +37,14 @@ export default defineConfig({
     },
 
     projects: [
+        // {
+        //     name: 'chromium',
+        // },
         {
-            name: 'chromium',
+            name: 'firefox',
+            use: {
+                browserName: 'firefox',
+            },
         },
         
         

@@ -3,9 +3,9 @@ import {  LoginPage } from '../page/Login';
 
 export class LoginHelper {
     constructor(private loginPage: LoginPage) {}
-    async login(): Promise<void> {
-        await this.loginPage.usernameInput.pressSequentially(Account[0].username);
-        await this.loginPage.passwordInput.pressSequentially(Account[0].password);
+    async login(username : string , password :string): Promise<void> {
+        await this.loginPage.usernameInput.pressSequentially(username);
+        await this.loginPage.passwordInput.pressSequentially(password);
         await this.loginPage.loginButton.click({timeout: 5000});
     }
 

@@ -49,6 +49,41 @@ export class MainMenu_page {
     get header_buzz(): Locator {
         return this.page.getByRole('heading', { name: 'Buzz', level: 6 })
     }
+    //---
+     get upgrade_btn(): Locator {
+        return this.page.getByRole('link', { name: 'Upgrade' })
+    }
+ 
+    get user_dropdown_menu(): Locator {
+        return this.page.locator('.oxd-userdropdown-tab')
+    }
+ 
+    get user_dropdown_name(): Locator {
+        return this.page.locator('.oxd-userdropdown-name')
+    }
+ 
+    get user_dropdown_img(): Locator {
+        return this.page.locator('.oxd-userdropdown-img')
+    }
+ 
+    get dropdown_item_about(): Locator {
+        return this.page.getByRole('menuitem', { name: 'About' })
+    }
+ 
+    get dropdown_item_support(): Locator {
+        return this.page.getByRole('menuitem', { name: 'Support' })
+    }
+ 
+    get dropdown_item_change_password(): Locator {
+        return this.page.getByRole('menuitem', { name: 'Change Password' })
+    }
+ 
+    get dropdown_item_logout(): Locator {
+        return this.page.getByRole('menuitem', { name: 'Logout' })
+    }
+
+
+
     // phan menu
     get admin_menu(): Locator {
         return this.page.getByRole('link', { name: 'Admin' })

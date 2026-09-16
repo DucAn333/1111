@@ -19,9 +19,10 @@ test.beforeEach(async ({ page }) => {
       }
     });
   });
-test('Menu', async ({ loginHelper, loginPage , getLinkHelper, choseMenuHelper , mainMenuPage}) => {
+  
+test('Go to  Admin', async ({ loginHelper, loginPage , getLinkHelper, choseMenuHelper , mainMenuPage}) => {
   await getLinkHelper.goto_URL();
-  await loginHelper.login();
+  await loginHelper.login(Account[0].username , Account[0].password);
   await expect(loginPage.logoImage).not.toBeVisible({timeout: 5000});
   await choseMenuHelper.chooseAdmin();
   await expect(mainMenuPage.header_admin).toBeVisible();

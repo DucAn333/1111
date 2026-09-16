@@ -1,0 +1,46 @@
+{
+  "login_data": [
+    {
+      "id": "TC_LOGIN_01",
+      "description": "Đăng nhập với đầy đủ thông tin hợp lệ",
+      "username": "Admin",
+      "password": "admin123",
+      "expected": "success"
+    },
+    {
+      "id": "TC_LOGIN_02",
+      "description": "Đăng nhập với username không tồn tại",
+      "username": "wronguser",
+      "password": "admin123",
+      "expected": "invalid_credentials"
+    },
+    {
+      "id": "TC_LOGIN_03",
+      "description": "Đăng nhập với password không đúng",
+      "username": "Admin",
+      "password": "wrongpass",
+      "expected": "invalid_credentials"
+    },
+    {
+      "id": "TC_LOGIN_04",
+      "description": "Đăng nhập khi bỏ trống cả Username và Password",
+      "username": "",
+      "password": "",
+      "expected": "required_both"
+    },
+    {
+      "id": "TC_LOGIN_05",
+      "description": "Đăng nhập khi bỏ trống Username",
+      "username": "",
+      "password": "admin123",
+      "expected": "required_username"
+    },
+    {
+      "id": "TC_LOGIN_06",
+      "description": "Đăng nhập khi bỏ trống Password",
+      "username": "Admin",
+      "password": "",
+      "expected": "required_password"
+    }
+  ]
+}
