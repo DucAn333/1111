@@ -27,13 +27,12 @@ export default defineConfig({
             width: 1920,
             height: 1080,
         },
-        
 
         headless: !!process.env.CI,
 
-        // trace: 'retain-on-failure',
-        // screenshot: 'only-on-failure',
-        // video: 'retain-on-failure',
+        trace: 'off',
+        screenshot: 'off',
+        video: 'off',
     },
 
     projects: [
