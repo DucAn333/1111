@@ -19,20 +19,12 @@ test.beforeEach(async ({ page }) => {
       }
     });
   });
-test('Login', async ({ loginHelper, loginPage , getLinkHelper}) => {
+test('Menu', async ({ loginHelper, loginPage , getLinkHelper, choseMenuHelper , mainMenuPage}) => {
   await getLinkHelper.goto_URL();
   await loginHelper.login();
   await expect(loginPage.logoImage).not.toBeVisible({timeout: 5000});
+  await choseMenuHelper.chooseAdmin();
+  await expect(mainMenuPage.header_admin).toBeVisible();
+  await mainMenuPage.sidebar_collapse_btn.click();
   });
-test('Forget Password', async ({ loginPage, forgotPasswordPage, getLinkHelper,forgotPasswordHelper }) => {
-    await getLinkHelper.goto_URL();
-    await loginPage.forgotPasswordLink.click({timeout: 5000});
-    await expect(forgotPasswordPage.logo_image).not.toBeVisible({timeout: 5000});
-
-    await forgotPasswordHelper.fillEmailToRequest();
-    //await expect(forgotPasswordPage.reset_success_message).toBeVisible({timeout: 5000});
-    // web khong phan hoi khi nhan lay lai mat khau, nen khong the kiem tra duoc message
-    
-  });  
-
 });

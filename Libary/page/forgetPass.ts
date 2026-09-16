@@ -24,6 +24,7 @@ export class ForgotPassword_page {
 
     get reset_password_btn(): Locator {
         return this.page.getByRole('button', { name: 'Reset Password' })
+
     }
 
     get username_required_error(): Locator {
