@@ -22,10 +22,11 @@ test.beforeEach(async ({ page , getLinkHelper}) => {
     await expect(page).toHaveURL(LinkURL);
     });
 for (const dataLogin of Data.login_data) {
-  test(`${dataLogin.id} - ${dataLogin.description}`, async ({loginHelper, loginPage }) => {
+  test(`${dataLogin.id} - ${dataLogin.description}`, async ({loginHelper, loginPage , mainMenuPage }) => {
     await loginHelper.login(dataLogin.username, dataLogin.password);
     if (dataLogin.expected === 'success'){
       await expect(loginPage.loginButton).not.toBeVisible({timeout: 5000});
+      await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});  
     }
     else{
       await expect(loginPage.loginButton).toBeVisible({timeout: 5000});
@@ -33,7 +34,7 @@ for (const dataLogin of Data.login_data) {
 
 });
   }
-test('TC_LOGIN_09 - Sau login, kiểm tra đúng tên user hiển thị', async ({ mainMenuPage , loginHelper }) => {
+test('TC_LOGIN_09 - Sau login, chuyển sang màn hình trang chủ', async ({ mainMenuPage , loginHelper }) => {
     await loginHelper.login(Account[0].username , Account[0].password);
     await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
   });
