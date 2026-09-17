@@ -23,7 +23,7 @@ test.beforeEach(async ({ page , getLinkHelper}) => {
     });
 for (const dataLogin of Data.login_data) {
   test(`${dataLogin.id} - ${dataLogin.description}`, async ({loginHelper, loginPage }) => {
-    //
+    // TC_LOGIN_01 ->  06
     await loginHelper.login(dataLogin.username, dataLogin.password);
     if (dataLogin.expected === 'success'){
       await expect(loginPage.loginButton).not.toBeVisible({timeout: 5000});
