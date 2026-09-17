@@ -4,7 +4,7 @@ import { LinkURL, Account } from '../Data/account';
 
 
 test.describe('Login and forget password', () => {
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ page , getLinkHelper }) => {
     await page.route('**/*', (route) => {
       const url = route.request().url();
 
@@ -18,10 +18,11 @@ test.beforeEach(async ({ page }) => {
         route.continue();
       }
     });
+     await getLinkHelper.goto_URL();
+     await expect(page).toHaveURL(LinkURL);
   });
   
-test('Go to  Admin', async ({ loginHelper, loginPage , getLinkHelper, choseMenuHelper , mainMenuPage}) => {
-  await getLinkHelper.goto_URL();
+test('Go to  Admin', async ({ loginHelper, choseMenuHelper , mainMenuPage}) => {
   await loginHelper.login(Account[0].username , Account[0].password);
   
   await choseMenuHelper.chooseAdmin();
