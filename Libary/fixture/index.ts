@@ -6,6 +6,8 @@ import { ForgotPassword_page } from '../page/forgetPass';
 import { requestPasswordHelper } from '../helper/requestPass';
 import { MainMenu_page } from '../page/mainMenu';
 import { choseMenuHelper } from '../helper/choseMenu';
+import { addEmployeeHelper } from '../helper/addEmployee';
+import { SystemUsers_page } from '../page/option/admin';
 export  { expect } from '@playwright/test';
 
 
@@ -17,6 +19,8 @@ loginHelper: LoginHelper;
 getLinkHelper: getLinkHelper;
 forgotPasswordHelper: requestPasswordHelper;
 choseMenuHelper: choseMenuHelper;
+addEmployeeHelper: addEmployeeHelper;
+SystemUsersPage: SystemUsers_page;
 }
 export const test = baseTest.extend<indexFixture>({
     // URL
@@ -37,6 +41,10 @@ export const test = baseTest.extend<indexFixture>({
         const mainMenuPage = new MainMenu_page(page);
         await use(mainMenuPage);
     },
+    SystemUsersPage: async({page}, use) =>{
+        const systemUsersPage = new SystemUsers_page(page);
+        await use(systemUsersPage);
+    },
     // helper
     loginHelper: async ({ loginPage }, use) => {
         const loginHelper = new LoginHelper(loginPage);
@@ -49,5 +57,9 @@ export const test = baseTest.extend<indexFixture>({
     choseMenuHelper: async ({ mainMenuPage }, use) => {
         const menuHelper = new choseMenuHelper(mainMenuPage);
         await use(menuHelper);
+    },
+    addEmployeeHelper: async ({ page }, use) => {
+        const employeeHelper = new addEmployeeHelper(new SystemUsers_page(page));
+        await use(employeeHelper);
     }
 });

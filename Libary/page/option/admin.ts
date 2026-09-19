@@ -29,6 +29,9 @@ export class SystemUsers_page {
     get employee_name_filter_input(): Locator {
         return this.page.getByPlaceholder('Type for hints...').nth(1)
     }
+    get employee_name_first_suggestion(): Locator {
+        return this.page.locator('div[role="option"]').first()
+    }
 
     get status_dropdown(): Locator {
         return this.page.locator('.oxd-table-filter-area .oxd-select-text').nth(1)
@@ -47,19 +50,32 @@ export class SystemUsers_page {
     }
     // affter click "+add"
     get add_user_role_dropdown(): Locator {
-        return this.page.locator('.oxd-form-row').filter({ hasText: 'User Role' }).locator('.oxd-select-text')
+        return this.page.locator('.oxd-select-text.oxd-select-text--active').first()
+    }
+     get user_role_option_admin(): Locator {
+        return this.page.getByRole('option', { name: 'Admin' })
+    }
+ 
+    get user_role_option_ess(): Locator {
+        return this.page.getByRole('option', { name: 'ESS' })
     }
  
     get add_employee_name_input(): Locator {
-        return this.page.locator('.oxd-form-row').filter({ hasText: 'Employee Name' }).getByPlaceholder('Type for hints...')
+        return this.page.getByRole('textbox', { name: 'Type for hints...' });
     }
  
     get add_status_dropdown(): Locator {
-        return this.page.locator('.oxd-form-row').filter({ hasText: 'Status' }).locator('.oxd-select-text')
+        return this.page.locator('.oxd-select-text.oxd-select-text--active').nth(1)
+    }
+    get status_option_enabled(): Locator {
+        return this.page.getByRole('option', { name: 'Enabled' })
     }
  
+    get status_option_disabled(): Locator {
+        return this.page.getByRole('option', { name: 'Disabled' })
+    }
     get add_username_input(): Locator {
-        return this.page.locator('.oxd-form-row').filter({ hasText: 'Username' }).locator('input')
+        return this.page.locator('.oxd-input.oxd-input--active').nth(1);
     }
  
     get password_input(): Locator {
