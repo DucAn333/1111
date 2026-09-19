@@ -45,4 +45,36 @@ export class SystemUsers_page {
     get filter_toggle_btn(): Locator {
         return this.page.locator('.oxd-table-filter-header-btn')
     }
+    // affter click "+add"
+    get add_user_role_dropdown(): Locator {
+        return this.page.locator('.oxd-form-row').filter({ hasText: 'User Role' }).locator('.oxd-select-text')
+    }
+ 
+    get add_employee_name_input(): Locator {
+        return this.page.locator('.oxd-form-row').filter({ hasText: 'Employee Name' }).getByPlaceholder('Type for hints...')
+    }
+ 
+    get add_status_dropdown(): Locator {
+        return this.page.locator('.oxd-form-row').filter({ hasText: 'Status' }).locator('.oxd-select-text')
+    }
+ 
+    get add_username_input(): Locator {
+        return this.page.locator('.oxd-form-row').filter({ hasText: 'Username' }).locator('input')
+    }
+ 
+    get password_input(): Locator {
+        return this.page.locator('input[type="password"]').nth(0)
+    }
+ 
+    get confirm_password_input(): Locator {
+        return this.page.locator('input[type="password"]').nth(1)
+    }
+ 
+    get cancel_btn(): Locator {
+        return this.page.getByRole('button', { name: 'Cancel' })
+    }
+ 
+    get save_btn(): Locator {
+        return this.page.getByRole('button', { name: 'Save' })
+    }
 }
