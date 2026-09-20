@@ -57,7 +57,7 @@ test.describe('Create employee', () => {
   });
 });
 test.describe('End to end add user', () => {
-  test.beforeEach(async ({ page , getLinkHelper }) => {
+  test.beforeEach(async ({ page , getLinkHelper, loginHelper, choseMenuHelper, mainMenuPage }) => {
     await page.route('**/*', (route) => {
       const url = route.request().url();
 
@@ -72,23 +72,24 @@ test.describe('End to end add user', () => {
       }
     });
     
-     await getLinkHelper.goto_URL();
-     await expect(page).toHaveURL(LinkURL);
+    await getLinkHelper.goto_URL();
+    await expect(page).toHaveURL(LinkURL);
+    await loginHelper.login(Account[0].username , Account[0].password);
+    await choseMenuHelper.chooseAdmin();
+    await expect(mainMenuPage.header_admin).toBeVisible();
+    await mainMenuPage.sidebar_collapse_btn.click();
      
   });
 test('TC_addUser_29 - Tạo tài khoản hợp lệ', async ({ loginHelper, choseMenuHelper , mainMenuPage , addEmployeeHelper , SystemUsersPage}) => {
   const user = employee.add_user_data[0]
-  await loginHelper.login(Account[0].username , Account[0].password);
-  await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible();
-  await mainMenuPage.sidebar_collapse_btn.click();
+  
   
   await addEmployeeHelper.addUser(user);
   await expect(SystemUsersPage.confirm_password_input).not.toBeVisible();
 
 });
 test('TC_addUser_30 - chỉnh sửa tài khoản', async ({ loginHelper, choseMenuHelper , mainMenuPage , addEmployeeHelper , SystemUsersPage}) => {
-  await loginHelper.login(Account[0].username , Account[0].password);
+  
 
 });
 test('TC_addUser_31 - xoá tài khoản', async ({ loginHelper, choseMenuHelper , mainMenuPage , addEmployeeHelper , SystemUsersPage}) => {

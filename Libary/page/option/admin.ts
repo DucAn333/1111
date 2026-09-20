@@ -93,4 +93,12 @@ export class SystemUsers_page {
     get save_btn(): Locator {
         return this.page.getByRole('button', { name: 'Save' })
     }
+
+    // fillter user
+    get delete_btn() : Locator {
+        return this.page.locator('.oxd-icon-button.oxd-table-cell-action-space').first()
+    }
+    get edit_btn() : Locator {
+        return this.page.locator('button.oxd-icon-button.oxd-table-cell-action-space:has(.bi-pencil-fill)').first()
+    }
 }
