@@ -10,7 +10,7 @@ type EmployeeData = {
     expected: string;
 };
 
-export class addEmployeeHelper {constructor(private SystemUsers_page: SystemUsers_page) {}
+export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_page) {}
      async addUser(user: EmployeeData): Promise<void> {
         await this.SystemUsers_page.add_btn.click({timeout:5000});
         if (user.user_role){

@@ -1,0 +1,290 @@
+{
+  "add_user_data": [
+    {
+      "id": "TC_addUser_01",
+      "description": "Tạo user với đầy đủ thông tin hợp lệ",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_02",
+      "description": "Tạo user khi bỏ trống User Role",
+      "user_role": "",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_03",
+      "description": "Tạo user khi bỏ trống Employee Name",
+      "user_role": "ESS",
+      "employee_name": "",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_04",
+      "description": "Tạo user khi bỏ trống Status",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_05",
+      "description": "Tạo user khi bỏ trống Username",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_06",
+      "description": "Tạo user khi bỏ trống Password",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_07",
+      "description": "Tạo user khi bỏ trống Confirm Password",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_08",
+      "description": "Tạo user khi Password và Confirm Password không khớp",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@123",
+      "confirm_password": "Password@456",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_09",
+      "description": "Tạo user với Username đã tồn tại trong hệ thống",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "Admin",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_10",
+      "description": "Tạo user với Password quá ngắn (dưới độ dài tối thiểu yêu cầu)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "123",
+      "confirm_password": "123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_11",
+      "description": "Tạo user khi bỏ trống tất cả các trường",
+      "user_role": "",
+      "employee_name": "Test Employee",
+      "status": "",
+      "username": "",
+      "password": "",
+      "confirm_password": "",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_12",
+      "description": "Tạo user với Employee Name không tồn tại trong hệ thống",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "khongtontai",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_13",
+      "description": "Tạo user với Username chứa ký tự đặc biệt không hợp lệ",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul@#$%",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_14",
+      "description": "Tạo user với Username vượt quá độ dài cho phép",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "pauliscollinsandthisusernameistoolongforthesystemtoaccept",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_15",
+      "description": "Tạo user với Password quá đơn giản, không đúng định dạng yêu cầu (thiếu ký tự đặc biệt/chữ hoa)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "password",
+      "confirm_password": "password",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_16",
+      "description": "Tạo user với trạng thái Disabled",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Disabled",
+      "username": "paul.collins2",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_17",
+      "description": "Tạo user với User Role là Admin",
+      "user_role": "Admin",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.admin",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_18",
+      "description": "Username đúng giá trị biên dưới - 5 ký tự (độ dài tối thiểu hợp lệ)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "abcde",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_19",
+      "description": "Username dưới giá trị biên - 4 ký tự (ít hơn tối thiểu 1 ký tự)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "abcd",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_20",
+      "description": "Username đúng giá trị biên trên - 40 ký tự (độ dài tối đa hợp lệ)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "abcdefghij1234567890abcdefg",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_21",
+      "description": "Username vượt giá trị biên trên - 41 ký tự (nhiều hơn tối đa 1 ký tự)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "abcdefghij1234567890abcdefghij1234567890a",
+      "password": "Password@123",
+      "confirm_password": "Password@123",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_22",
+      "description": "Password và Confirm Password đúng giá trị biên dưới - 7 ký tự (độ dài tối thiểu hợp lệ)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Pass@12",
+      "confirm_password": "Pass@12",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_23",
+      "description": "Password và Confirm Password dưới giá trị biên - 6 ký tự (ít hơn tối thiểu 1 ký tự)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Pass@1",
+      "confirm_password": "Pass@1",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_24",
+      "description": "Password và Confirm Password đúng giá trị biên trên - 64 ký tự (độ dài tối đa hợp lệ)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@1234567890Password@1234567890Password@1234567890Passwor",
+      "confirm_password": "Password@1234567890Password@1234567890Password@1234567890Passwor",
+      "expected": "true"
+    },
+    {
+      "id": "TC_addUser_25",
+      "description": "Password và Confirm Password vượt giá trị biên trên - 65 ký tự (nhiều hơn tối đa 1 ký tự)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "paul.collins",
+      "password": "Password@1234567890Password@1234567890Password@1234567890Password",
+      "confirm_password": "Password@1234567890Password@1234567890Password@1234567890Password",
+      "expected": "fail"
+    },
+    {
+      "id": "TC_addUser_26",
+      "description": "Username và Password chỉ chứa toàn khoảng trắng (giá trị biên đặc biệt)",
+      "user_role": "ESS",
+      "employee_name": "Test Employee",
+      "status": "Enabled",
+      "username": "     ",
+      "password": "       ",
+      "confirm_password": "       ",
+      "expected": "fail"
+    }
+  ]
+}

@@ -6,8 +6,10 @@ import { ForgotPassword_page } from '../page/forgetPass';
 import { requestPasswordHelper } from '../helper/requestPass';
 import { MainMenu_page } from '../page/mainMenu';
 import { choseMenuHelper } from '../helper/choseMenu';
-import { addEmployeeHelper } from '../helper/addEmployee';
+import { addUserHelper } from '../helper/addEmployee';
 import { SystemUsers_page } from '../page/option/admin';
+import { createEmployee } from '../helper/createEmployee';
+import {EmployeeList_page } from '../page/option/PIM'
 export  { expect } from '@playwright/test';
 
 
@@ -19,8 +21,10 @@ loginHelper: LoginHelper;
 getLinkHelper: getLinkHelper;
 forgotPasswordHelper: requestPasswordHelper;
 choseMenuHelper: choseMenuHelper;
-addEmployeeHelper: addEmployeeHelper;
+addUserHelper: addUserHelper;
 SystemUsersPage: SystemUsers_page;
+createEmployee : createEmployee;
+EmployeeList_page : EmployeeList_page;
 }
 export const test = baseTest.extend<indexFixture>({
     // URL
@@ -45,6 +49,12 @@ export const test = baseTest.extend<indexFixture>({
         const systemUsersPage = new SystemUsers_page(page);
         await use(systemUsersPage);
     },
+    EmployeeList_page: async ({ page }, use) => {
+        const employeeListPage = new EmployeeList_page(page);
+        await use(employeeListPage);
+    },
+    
+
     // helper
     loginHelper: async ({ loginPage }, use) => {
         const loginHelper = new LoginHelper(loginPage);
@@ -58,8 +68,12 @@ export const test = baseTest.extend<indexFixture>({
         const menuHelper = new choseMenuHelper(mainMenuPage);
         await use(menuHelper);
     },
-    addEmployeeHelper: async ({ page }, use) => {
-        const employeeHelper = new addEmployeeHelper(new SystemUsers_page(page));
+    addUserHelper: async ({ page }, use) => {
+        const employeeHelper = new addUserHelper(new SystemUsers_page(page));
         await use(employeeHelper);
-    }
+    },
+    createEmployee: async ({ page }, use) => {
+         const employeeCreator = new createEmployee(new EmployeeList_page(page));
+         await use(employeeCreator);
+    },
 });
