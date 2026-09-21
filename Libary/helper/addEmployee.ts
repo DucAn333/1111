@@ -12,7 +12,7 @@ type EmployeeData = {
 
 export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_page) {}
      async addUser(user: EmployeeData): Promise<void> {
-        await this.SystemUsers_page.add_btn.click({timeout:5000});
+        await this.SystemUsers_page.add_btn.click();
         if (user.user_role){
             await this.SystemUsers_page.add_user_role_dropdown.click();
             await this.SystemUsers_page.page.getByRole('option', { name: `${user.user_role}` }).click();
@@ -37,7 +37,7 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
         }
         await this.SystemUsers_page.password_input.pressSequentially(user.password);
         await this.SystemUsers_page.confirm_password_input.pressSequentially(user.confirm_password);
-        await this.SystemUsers_page.save_btn.click({timeout:5000});
+        await this.SystemUsers_page.save_btn.click();
 
     }
 

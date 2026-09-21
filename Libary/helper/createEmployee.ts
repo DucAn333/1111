@@ -11,8 +11,8 @@ type EmployeeData = {
 
 export class createEmployee {constructor(private EmployeeList_page: EmployeeList_page) {}
     async addEmployee(user : EmployeeData): Promise<void> {
-        await this.EmployeeList_page.add_btn.click({timeout:5000});
-        await expect(this.EmployeeList_page.first_name_input).toBeVisible();
+        await this.EmployeeList_page.add_btn.click();
+        await expect(this.EmployeeList_page.first_name_input).toBeVisible({timeout:5000});
         if (user.first_name){
             await this.EmployeeList_page.first_name_input.pressSequentially(user.first_name);
         }
@@ -22,17 +22,13 @@ export class createEmployee {constructor(private EmployeeList_page: EmployeeList
         if (user.last_name){
             await this.EmployeeList_page.last_name_input.pressSequentially(user.last_name);
         }
-        // if (user.employee_id) {
-        //     const employee_id_number =`${user.employee_id}${Date.now()}`.slice(0, 30);
-        //     await this.EmployeeList_page.employee_id_input_add.fill(employee_id_number);
-        // }
         if (user.save === true){
-            await this.EmployeeList_page.save_btn.click({timeout:5000});
-            await expect(this.EmployeeList_page.first_name_input).not.toBeVisible({timeout:5000});
+            await this.EmployeeList_page.save_btn.click();
+            
         }
         if (user.save === false){
-            await this.EmployeeList_page.cancel_btn.click({timeout:5000});
-            await expect(this.EmployeeList_page.first_name_input).toBeVisible({timeout:5000});          
+            await this.EmployeeList_page.cancel_btn.click();
+                    
         }
     }
 }

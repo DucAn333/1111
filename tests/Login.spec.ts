@@ -19,7 +19,7 @@ test.beforeEach(async ({ page , getLinkHelper}) => {
       }
     });
     await getLinkHelper.goto_URL();
-    await expect(page).toHaveURL(LinkURL);
+    await expect(page).toHaveURL(LinkURL, {timeout: 5000});
     });
 for (const dataLogin of Data.login_data) {
   test(`${dataLogin.id} - ${dataLogin.description}`, async ({loginHelper, loginPage }) => {
@@ -40,12 +40,12 @@ for (const dataLogin of Data.login_data) {
     await loginHelper.login(Account[0].username , Account[0].password);
     
     await mainMenuPage.user_dropdown_menu.click();
-    await mainMenuPage.dropdown_item_logout.click({timeout:5000});
-    await expect(loginPage.loginButton).toBeVisible();
+    await mainMenuPage.dropdown_item_logout.click();
+    await expect(loginPage.loginButton).toBeVisible({timeout: 5000});
     
   });
   test('TC_LOGIN_12 - Lấy lại tài khoản khi quên mật khẩu', async ({ loginPage, forgotPasswordPage ,forgotPasswordHelper }) => {
-    await loginPage.forgotPasswordLink.click({timeout: 5000});
+    await loginPage.forgotPasswordLink.click();
     await expect(forgotPasswordPage.logo_image).not.toBeVisible({timeout: 5000});
 
     await forgotPasswordHelper.fillEmailToRequest();

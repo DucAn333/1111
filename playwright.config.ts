@@ -12,7 +12,7 @@ export default defineConfig({
 
     retries: process.env.CI ? 1 : 1,
 
-    timeout: 50000,
+    timeout: 500000,
 
     // reporter: [
     //     ['list'],

@@ -8,7 +8,7 @@ export class requestPasswordHelper {
     }
     async fillEmailToRequest(): Promise<void> {
         await this.ForgotPasswordPage.username_input.pressSequentially(Account[0].username);
-        await this.ForgotPasswordPage.reset_password_btn.click({timeout: 5000});
+        await this.ForgotPasswordPage.reset_password_btn.click();
     }
     
 

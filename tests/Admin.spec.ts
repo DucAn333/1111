@@ -23,10 +23,10 @@ test.describe('Create employee', () => {
       }
     });
      await getLinkHelper.goto_URL();
-     await expect(page).toHaveURL(LinkURL);
+    await expect(page).toHaveURL(LinkURL, {timeout: 5000});
      
   });
-  test('TC_addEmployee_00 - tạo một employee trước', async ({ loginHelper, choseMenuHelper , EmployeeList_page , createEmployee}) => {
+  test('TC_addEmployee_00 - tạo một employee trước', async ({ loginHelper, choseMenuHelper , createEmployee}) => {
     const Emp = createEmployeeData.add_employee_data[0];
     await loginHelper.login(Account[0].username , Account[0].password);
     await choseMenuHelper.choosePIM();
@@ -37,15 +37,15 @@ test.describe('Create employee', () => {
   test(`${newUser.id} - ${newUser.description}`, async ({  choseMenuHelper , mainMenuPage, addUserHelper , SystemUsersPage , loginHelper}) => {
   await loginHelper.login(Account[0].username , Account[0].password);
   await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible();
+  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
   await mainMenuPage.sidebar_collapse_btn.click();
   
   await addUserHelper.addUser(newUser);
   if (newUser.expected === 'true'){
-    await expect(SystemUsersPage.confirm_password_input).not.toBeVisible();
+    await expect(SystemUsersPage.confirm_password_input).not.toBeVisible({timeout:5000});
   }
   else{
-    await expect(SystemUsersPage.confirm_password_input).toBeVisible();
+    await expect(SystemUsersPage.confirm_password_input).toBeVisible({timeout:5000});
   }
   });
   }
@@ -53,7 +53,7 @@ test.describe('Create employee', () => {
   await loginHelper.login(Account[0].username , Account[0].password);
   
   await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible();
+  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
   await mainMenuPage.sidebar_collapse_btn.click();
   await SystemUsersPage.add_btn.click();
   await SystemUsersPage.cancel_btn.click();
@@ -64,7 +64,7 @@ test.describe('Create employee', () => {
   await loginHelper.login(Account[0].username , Account[0].password);
   
   await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible();
+  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
   await mainMenuPage.sidebar_collapse_btn.click();
   });
 });
@@ -85,19 +85,25 @@ test.describe('End to end add user', () => {
     });
     
     await getLinkHelper.goto_URL();
-    await expect(page).toHaveURL(LinkURL);
-    await loginHelper.login(Account[0].username , Account[0].password);
-    await choseMenuHelper.chooseAdmin();
-    await expect(mainMenuPage.header_admin).toBeVisible();
-    await mainMenuPage.sidebar_collapse_btn.click();
+    await expect(page).toHaveURL(LinkURL, {timeout: 5000});
+    
      
   });
-test('TC_addUser_29 - Tạo tài khoản hợp lệ', async ({ loginHelper, choseMenuHelper , mainMenuPage , addUserHelper , SystemUsersPage}) => {
+  test('TC_addEmployee_00 - tạo một employee trước', async ({ loginHelper, choseMenuHelper , createEmployee}) => {
+    const Emp = createEmployeeData.add_employee_data[0];
+    await loginHelper.login(Account[0].username , Account[0].password);
+    await choseMenuHelper.choosePIM();
+    await createEmployee.addEmployee(Emp);
+  });
+test('TC_addUser_29 - Tạo tài khoản hợp lệ', async ({  addUserHelper , SystemUsersPage ,loginHelper,choseMenuHelper , mainMenuPage}) => {
   const testUser = user.add_user_data[0]
-  
-  
+  // tương tự, phải tạo 1 employee trước
+  await loginHelper.login(Account[0].username , Account[0].password);
+  await choseMenuHelper.chooseAdmin();
+  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
+  await mainMenuPage.sidebar_collapse_btn.click();
   await addUserHelper.addUser(testUser);
-  await expect(SystemUsersPage.confirm_password_input).not.toBeVisible();
+  await expect(SystemUsersPage.confirm_password_input).not.toBeVisible({timeout: 5000});
 
 });
 test('TC_addUser_30 - chỉnh sửa tài khoản', async ({ loginHelper, choseMenuHelper , mainMenuPage , addUserHelper , SystemUsersPage}) => {
