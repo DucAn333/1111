@@ -31,6 +31,9 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
                 await this.SystemUsers_page.add_username_input.pressSequentially(user.username);
                 console.log(user.username)
             }
+            if(user.username ==='RayanCherki'){
+                await this.SystemUsers_page.add_username_input.pressSequentially(user.username);  
+            }
             else{
                 await this.SystemUsers_page.add_username_input.pressSequentially(username);
             }
@@ -38,6 +41,7 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
         await this.SystemUsers_page.password_input.pressSequentially(user.password);
         await this.SystemUsers_page.confirm_password_input.pressSequentially(user.confirm_password);
         await this.SystemUsers_page.save_btn.click();
+         await this.SystemUsers_page.page.waitForTimeout(5000);
 
     }
 

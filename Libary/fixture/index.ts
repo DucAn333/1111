@@ -6,9 +6,10 @@ import { ForgotPassword_page } from '../page/forgetPass';
 import { requestPasswordHelper } from '../helper/requestPass';
 import { MainMenu_page } from '../page/mainMenu';
 import { choseMenuHelper } from '../helper/choseMenu';
-import { addUserHelper } from '../helper/addEmployee';
+import { addUserHelper } from '../helper/addUser';
 import { SystemUsers_page } from '../page/option/admin';
 import { createEmployee } from '../helper/createEmployee';
+import { UserHelper } from '../helper/findUser';
 import {EmployeeList_page } from '../page/option/PIM'
 export  { expect } from '@playwright/test';
 
@@ -25,6 +26,7 @@ addUserHelper: addUserHelper;
 SystemUsersPage: SystemUsers_page;
 createEmployee : createEmployee;
 EmployeeList_page : EmployeeList_page;
+userHelper: UserHelper;
 }
 export const test = baseTest.extend<indexFixture>({
     // URL
@@ -68,12 +70,16 @@ export const test = baseTest.extend<indexFixture>({
         const menuHelper = new choseMenuHelper(mainMenuPage);
         await use(menuHelper);
     },
-    addUserHelper: async ({ page }, use) => {
-        const employeeHelper = new addUserHelper(new SystemUsers_page(page));
+    addUserHelper: async ({ SystemUsersPage }, use) => {
+        const employeeHelper = new addUserHelper(SystemUsersPage);
         await use(employeeHelper);
     },
-    createEmployee: async ({ page }, use) => {
-         const employeeCreator = new createEmployee(new EmployeeList_page(page));
+    createEmployee: async ({ EmployeeList_page }, use) => {
+         const employeeCreator = new createEmployee(EmployeeList_page);
          await use(employeeCreator);
+    },
+    userHelper: async ({ SystemUsersPage }, use) => {
+        const userHelper = new UserHelper(SystemUsersPage);
+        await use(userHelper);
     },
 });

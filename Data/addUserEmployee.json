@@ -6,7 +6,7 @@
       "user_role": "ESS",
       "employee_name": "Test Employee",
       "status": "Enabled",
-      "username": "paul.collins",
+      "username": "RayanCherki",
       "password": "Password@123",
       "confirm_password": "Password@123",
       "expected": "true"

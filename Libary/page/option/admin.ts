@@ -19,7 +19,9 @@ export class SystemUsers_page {
     }
 
     get username_filter_input(): Locator {
-        return this.page.locator('.oxd-table-filter-area').getByPlaceholder('Type for hints...')
+        return this.page.locator(`//div/div[2]/input`)
+
+
     }
 
     get user_role_dropdown(): Locator {
@@ -96,9 +98,28 @@ export class SystemUsers_page {
 
     // fillter user
     get delete_btn() : Locator {
-        return this.page.locator('.oxd-icon-button.oxd-table-cell-action-space').first()
+        return this.page.locator('.oxd-icon-button.oxd-table-cell-action-space').first();
     }
     get edit_btn() : Locator {
         return this.page.locator('button.oxd-icon-button.oxd-table-cell-action-space:has(.bi-pencil-fill)').first()
     }
+    result(username: string): Locator {
+        return this.page.getByText(username, { exact: true });
+    }
+    // edit
+    get EditUser() : Locator {
+        return this.page.getByRole('heading', { name: 'Edit User', level: 6 })
+    }
+    get username_input_edit() : Locator {
+        return this.page.locator(`div.oxd-input-group > div > input.oxd-input`);
+    }
+    get save_edit_btn() : Locator {
+        return this.page.getByRole('button', { name: 'Save' });
+    }
+     get delete_user_confirm() : Locator {
+        return this.page.getByRole('button', { name: 'Yes, Delete' })
+    }
+    
+
+
 }

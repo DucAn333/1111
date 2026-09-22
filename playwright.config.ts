@@ -24,8 +24,8 @@ export default defineConfig({
 
     use: {
         viewport: {
-            width: 1920,
-            height: 1080,
+            width: 1900,
+            height: 1050,
         },
 
         headless: !!process.env.CI,
