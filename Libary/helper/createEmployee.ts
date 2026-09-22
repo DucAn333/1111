@@ -24,11 +24,11 @@ export class createEmployee {constructor(private EmployeeList_page: EmployeeList
         }
         if (user.save === true){
             await this.EmployeeList_page.save_btn.click();
-            
+            await expect (this.EmployeeList_page.cancel_btn).toBeEnabled({timeout:5000})
         }
         if (user.save === false){
             await this.EmployeeList_page.cancel_btn.click();
-                    
+            await expect (this.EmployeeList_page.cancel_btn).toBeVisible({timeout:5000})
         }
     }
 }

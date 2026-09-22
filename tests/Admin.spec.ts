@@ -89,7 +89,7 @@ test.describe('End to end add user', () => {
     
      
   });
-  test('TC_addEmployee_00 - tạo một employee trước', async ({ loginHelper, choseMenuHelper , createEmployee}) => {
+test('TC_addEmployee_00 - tạo một employee trước', async ({ loginHelper, choseMenuHelper , createEmployee}) => {
     const Emp = createEmployeeData.add_employee_data[0];
     await loginHelper.login(Account[0].username , Account[0].password);
     await choseMenuHelper.choosePIM();
