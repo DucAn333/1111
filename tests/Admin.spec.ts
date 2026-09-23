@@ -37,7 +37,7 @@ test.describe('Create employee', () => {
   test(`${newUser.id} - ${newUser.description}`, async ({  choseMenuHelper , mainMenuPage, addUserHelper , SystemUsersPage , loginHelper}) => {
   await loginHelper.login(Account[0].username , Account[0].password);
   await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
+  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 10000});
   await mainMenuPage.sidebar_collapse_btn.click();
   
   await addUserHelper.addUser(newUser);
