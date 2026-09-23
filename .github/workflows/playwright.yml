@@ -3,9 +3,18 @@ name: Playwright Tests
 on:
   workflow_dispatch:
 
+  workflow_call:
+    secrets:
+      LINK_URL:
+        required: true
+      ORANGEHRM_USERNAME:
+        required: true
+      ORANGEHRM_PASSWORD:
+        required: true
+
   schedule:
-    - cron: '00 1 * * *'
-      timezone: 'Asia/Ho_Chi_Minh'
+    # 01:00 Asia/Ho_Chi_Minh = 18:00 UTC on the previous day.
+    - cron: '00 18 * * *'
 jobs:
   test:
     timeout-minutes: 60
@@ -28,6 +37,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Check environment
+      
         run: |
           node -v
           npm -v
