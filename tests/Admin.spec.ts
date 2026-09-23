@@ -50,8 +50,9 @@ test.describe('Create employee', () => {
   });
   }
   test('TC_addUser_27 - Huỷ tạo tài khoản khi nhấn btn Cancel', async ({ loginHelper, choseMenuHelper , mainMenuPage ,SystemUsersPage}) => {
+  // test case này thiếu nên code riêng, cách đúng nhất là chỉnh json "save" = true/false, if = false tương đương với nhấn btn cancel
+    
   await loginHelper.login(Account[0].username , Account[0].password);
-  
   await choseMenuHelper.chooseAdmin();
   await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
   await mainMenuPage.sidebar_collapse_btn.click();
@@ -99,7 +100,7 @@ test('TC_addEmployee_00 - tạo một employee trước', async ({  choseMenuHel
 test('TC_addUser_29 - Tạo tài khoản hợp lệ', async ({  addUserHelper  ,choseMenuHelper , mainMenuPage}) => {
   await choseMenuHelper.chooseAdmin();
   await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
-  await mainMenuPage.sidebar_collapse_btn.click();
+  //await mainMenuPage.sidebar_collapse_btn.click();
   await addUserHelper.addUser(testUser);
 });
 
