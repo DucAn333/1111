@@ -24,7 +24,6 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
             if ( await Option.isVisible()){
                 await Option.click();
             }
-            await this.SystemUsers_page.page.getByText(`${user.employee_name}`, { exact: true }).first().click();
         }
         if (user.status){
             await this.SystemUsers_page.add_status_dropdown.click();
@@ -43,13 +42,16 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
                 await this.SystemUsers_page.add_username_input.pressSequentially(username);
             }
         }
+        
+        await this.SystemUsers_page.password_input.pressSequentially(user.password);
+        await this.SystemUsers_page.confirm_password_input.pressSequentially(user.confirm_password);
         if (user.save === false){
             await this.SystemUsers_page.cancel_btn.click();
         }
-        await this.SystemUsers_page.password_input.pressSequentially(user.password);
-        await this.SystemUsers_page.confirm_password_input.pressSequentially(user.confirm_password);
-        await this.SystemUsers_page.save_btn.click();
-         await this.SystemUsers_page.page.waitForTimeout(5000);
+        else{
+            await this.SystemUsers_page.save_btn.click();
+        }
+        await this.SystemUsers_page.page.waitForTimeout(5000);
 
     }
 
