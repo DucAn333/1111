@@ -38,6 +38,9 @@ jobs:
         run: npx playwright test --reporter=list,html
         env:
           CI: true
+          LINK_URL: ${{ secrets.LINK_URL }}
+          ORANGEHRM_USERNAME: ${{ secrets.ORANGEHRM_USERNAME }}
+          ORANGEHRM_PASSWORD: ${{ secrets.ORANGEHRM_PASSWORD }}
 
       - name: Upload Playwright HTML Report
         if: always()
@@ -46,4 +49,3 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 30
-
