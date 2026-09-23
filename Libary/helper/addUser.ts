@@ -24,7 +24,9 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
         }
         if (user.status){
             await this.SystemUsers_page.add_status_dropdown.click();
-            await this.SystemUsers_page.page.getByRole('option', { name: `${user.status}` }).click();
+            const statusOption = this.SystemUsers_page.page.getByRole('option', { name: user.status });
+            if (await statusOption.isVisible())
+                await statusOption.click();
         }
         if (user.username) {
             const username = `${user.username}${Date.now()}`;
