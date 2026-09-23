@@ -12,8 +12,7 @@ export class LoginPage {
   loginButton: Locator;
   forgotPasswordLink: Locator;
   invalidCredentialsAlert: Locator;
-  usernameRequiredError: Locator;
-  passwordRequiredError: Locator;
+  RequiredError : Locator;
   footerText: Locator;
 
   constructor(page: Page) {
@@ -34,15 +33,9 @@ export class LoginPage {
 
     this.invalidCredentialsAlert = page.locator('.oxd-alert-content-text');
 
-    this.usernameRequiredError = page
-      .locator('.oxd-input-group')
-      .filter({ has: this.usernameInput })
-      .locator('.oxd-input-field-error-message, .oxd-text--span');
+    this.RequiredError = page.locator('.oxd-alert.oxd-alert--error');
 
-    this.passwordRequiredError = page
-      .locator('.oxd-input-group')
-      .filter({ has: this.passwordInput })
-      .locator('.oxd-input-field-error-message, .oxd-text--span');
+   
 
     this.footerText = page.locator('.orangehrm-login-footer, .orangehrm-copyright');
   }
