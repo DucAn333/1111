@@ -1,18 +1,16 @@
-// cac file data co the duoc doi thanh env
+const requiredEnv = (name: string): string => {
+  const value = process.env[name];
+  if (!value) {
+    throw new Error(`Missing required environment variable: ${name}`);
+  }
+  return value;
+};
 
-function generateRandomName(): string {
-    const nums = '0123456789';
-    const randomNums = Array.from({ length: 2 }, () => nums[Math.floor(Math.random() * nums.length)]).join('');
-    
-    return randomNums;
-}
-const randomNum = generateRandomName()
-
-export const LinkURL = 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login';
+export const LinkURL = requiredEnv('LINK_URL');
 
 export const Account = [
     {
-  username: 'Admin',
-  password: 'admin123',
+    username: requiredEnv('ORANGEHRM_USERNAME'),
+    password: requiredEnv('ORANGEHRM_PASSWORD'),
   },
 ];
