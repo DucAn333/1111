@@ -49,16 +49,7 @@ test.describe('Create employee', () => {
   }
   });
   }
-  test('TC_addUser_27 - Huỷ tạo tài khoản khi nhấn btn Cancel', async ({ loginHelper, choseMenuHelper , mainMenuPage ,SystemUsersPage}) => {
-  await loginHelper.login(Account[0].username , Account[0].password);
   
-  await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
-  await mainMenuPage.sidebar_collapse_btn.click();
-  await SystemUsersPage.add_btn.click();
-  await SystemUsersPage.cancel_btn.click();
-  await expect (SystemUsersPage.add_btn).toBeVisible({timeout:5000});
-  });
   
   test('TC_addUser_28 - Go to  Admin', async ({ loginHelper, choseMenuHelper , mainMenuPage}) => {
   await loginHelper.login(Account[0].username , Account[0].password);

@@ -8,6 +8,7 @@ type EmployeeData = {
     password: string;
     confirm_password: string;
     expected: string;
+    save: boolean;
 };
 
 export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_page) {}
@@ -37,6 +38,9 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
             else{
                 await this.SystemUsers_page.add_username_input.pressSequentially(username);
             }
+        }
+        if (user.save === false){
+            await this.SystemUsers_page.cancel_btn.click();
         }
         await this.SystemUsers_page.password_input.pressSequentially(user.password);
         await this.SystemUsers_page.confirm_password_input.pressSequentially(user.confirm_password);
