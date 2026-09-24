@@ -41,7 +41,7 @@ test.describe('Create employee', () => {
   await mainMenuPage.sidebar_collapse_btn.click();
   
   await addUserHelper.addUser(newUser);
-  if (newUser.expected === 'true'){
+  if (newUser.expected === true){
     await expect(SystemUsersPage.confirm_password_input).not.toBeVisible({timeout:5000});
   }
   if (newUser.save === false){

@@ -7,7 +7,7 @@ type EmployeeData = {
     username: string;
     password: string;
     confirm_password: string;
-    expected: string;
+    expected: boolean;
     save: boolean;
 };
 

@@ -10,7 +10,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_02",
@@ -22,7 +22,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_03",
@@ -34,7 +34,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_04",
@@ -46,7 +46,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_05",
@@ -58,7 +58,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_06",
@@ -70,7 +70,7 @@
       "password": "",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_07",
@@ -82,7 +82,7 @@
       "password": "Password@123",
       "confirm_password": "",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_08",
@@ -94,7 +94,7 @@
       "password": "Password@123",
       "confirm_password": "Password@456",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_09",
@@ -106,7 +106,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_10",
@@ -118,7 +118,7 @@
       "password": "123",
       "confirm_password": "123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_11",
@@ -130,7 +130,7 @@
       "password": "",
       "confirm_password": "",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_12",
@@ -142,7 +142,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_13",
@@ -154,7 +154,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_14",
@@ -166,7 +166,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_15",
@@ -178,7 +178,7 @@
       "password": "password",
       "confirm_password": "password",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_16",
@@ -190,7 +190,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_17",
@@ -202,7 +202,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_18",
@@ -214,7 +214,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_19",
@@ -226,7 +226,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_20",
@@ -238,7 +238,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_21",
@@ -250,7 +250,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_22",
@@ -262,7 +262,7 @@
       "password": "Pass@12",
       "confirm_password": "Pass@12",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_23",
@@ -274,7 +274,7 @@
       "password": "Pass@1",
       "confirm_password": "Pass@1",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_24",
@@ -286,7 +286,7 @@
       "password": "Password@1234567890Password@1234567890Password@1234567890Passwor",
       "confirm_password": "Password@1234567890Password@1234567890Password@1234567890Passwor",
       "save": true,
-      "expected": "true"
+      "expected": true
     },
     {
       "id": "TC_addUser_25",
@@ -298,7 +298,7 @@
       "password": "Password@1234567890Password@1234567890Password@1234567890Password",
       "confirm_password": "Password@1234567890Password@1234567890Password@1234567890Password",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_26",
@@ -310,7 +310,7 @@
       "password": "       ",
       "confirm_password": "       ",
       "save": true,
-      "expected": "fail"
+      "expected": false
     },
     {
       "id": "TC_addUser_27",
@@ -322,7 +322,7 @@
       "password": "Password@123",
       "confirm_password": "Password@123",
       "save": false,
-      "expected": "fail"
+      "expected": false
     }
   ]
 }
