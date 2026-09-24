@@ -6,8 +6,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0382",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -16,8 +17,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0382",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -26,8 +28,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "1001",
+      "employee_id": true,
       "save": false,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -36,8 +39,9 @@
       "first_name": "",
       "middle_name": "Michael",
       "last_name": "Employee",
-      "employee_id": "0383",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -46,8 +50,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "",
-      "employee_id": "0384",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -56,8 +61,9 @@
       "first_name": "",
       "middle_name": "",
       "last_name": "",
-      "employee_id": "0385",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -66,8 +72,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0386",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -76,8 +83,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -86,8 +94,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0382",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -96,8 +105,9 @@
       "first_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0388",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -106,8 +116,9 @@
       "first_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCD",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0389",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -116,8 +127,9 @@
       "first_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDE",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0390",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -126,8 +138,9 @@
       "first_name": "Test",
       "middle_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCD",
       "last_name": "Employee",
-      "employee_id": "0391",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -136,8 +149,9 @@
       "first_name": "Test",
       "middle_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDE",
       "last_name": "Employee",
-      "employee_id": "0392",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -146,8 +160,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZA",
-      "employee_id": "0393",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -156,8 +171,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCD",
-      "employee_id": "0394",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "true"
     },
     {
@@ -166,8 +182,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDE",
-      "employee_id": "0395",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -176,8 +193,9 @@
       "first_name": "   ",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0396",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -186,8 +204,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "   ",
-      "employee_id": "0397",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -196,8 +215,9 @@
       "first_name": "@@@",
       "middle_name": "",
       "last_name": "Employee",
-      "employee_id": "0398",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -206,8 +226,9 @@
       "first_name": "Test",
       "middle_name": "",
       "last_name": "@@@",
-      "employee_id": "0399",
+      "employee_id": true,
       "save": true,
+      "upload": false,
       "expected": "fail"
     },
     {
@@ -216,8 +237,20 @@
       "first_name": "Test",
       "middle_name": "Van",
       "last_name": "Employee",
-      "employee_id": "0404",
+      "employee_id": true,
       "save": true,
+      "upload": false,
+      "expected": "true"
+    },
+    {
+      "id": "TC_ADD_EMP_22",
+      "description": "Tao Employee có upload ảnh",
+      "first_name": "Test",
+      "middle_name": "",
+      "last_name": "Employee",
+      "employee_id": true,
+      "save": true,
+      "upload": true,
       "expected": "true"
     }
   ]
