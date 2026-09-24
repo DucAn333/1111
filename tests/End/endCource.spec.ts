@@ -23,6 +23,7 @@ test('TC_01 - đăng nhập thành công', async ({ loginHelper,loginPage}) => {
     const account = Account[0];
     await loginHelper.login(account.username , account.password);
     await expect (loginPage.RequiredError).toBeHidden({timeout:5000});
+    await expect (loginPage.logoImage).toBeHidden({timeout:5000});
 });
 test('TC_02 - đăng nhập sai mật khẩu', async ({ loginHelper,loginPage}) => {
     const account = Account[1];
