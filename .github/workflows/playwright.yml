@@ -11,10 +11,15 @@ on:
         required: true
       ORANGEHRM_PASSWORD:
         required: true
+      ORANGEHRM_USERNAME1:
+        required: true
+      ORANGEHRM_PASSWORD1:
+        required: true
 
   schedule:
     # 01:00 Asia/Ho_Chi_Minh = 18:00 UTC on the previous day.
     - cron: '00 18 * * *'
+
 jobs:
   test:
     timeout-minutes: 60
@@ -37,20 +42,33 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Check environment
-      
-        run: |
-          node -v
-          npm -v
-          npx playwright --version
-          echo "CI=$CI"
-
-      - name: Run Playwright tests
-        run: npx playwright test --reporter=list,html
         env:
           CI: true
           LINK_URL: ${{ secrets.LINK_URL }}
           ORANGEHRM_USERNAME: ${{ secrets.ORANGEHRM_USERNAME }}
           ORANGEHRM_PASSWORD: ${{ secrets.ORANGEHRM_PASSWORD }}
+          ORANGEHRM_USERNAME1: ${{ secrets.ORANGEHRM_USERNAME1 }}
+          ORANGEHRM_PASSWORD1: ${{ secrets.ORANGEHRM_PASSWORD1 }}
+        run: |
+          node -v
+          npm -v
+          npx playwright --version
+          echo "CI=$CI"
+          echo "LINK_URL is set: ${{ secrets.LINK_URL != '' }}"
+          echo "USERNAME is set: ${{ secrets.ORANGEHRM_USERNAME != '' }}"
+          echo "PASSWORD is set: ${{ secrets.ORANGEHRM_PASSWORD != '' }}"
+          echo "USERNAME1 is set: ${{ secrets.ORANGEHRM_USERNAME1 != '' }}"
+          echo "PASSWORD1 is set: ${{ secrets.ORANGEHRM_PASSWORD1 != '' }}"
+
+      - name: Run Playwright tests
+        env:
+          CI: true
+          LINK_URL: ${{ secrets.LINK_URL }}
+          ORANGEHRM_USERNAME: ${{ secrets.ORANGEHRM_USERNAME }}
+          ORANGEHRM_PASSWORD: ${{ secrets.ORANGEHRM_PASSWORD }}
+          ORANGEHRM_USERNAME1: ${{ secrets.ORANGEHRM_USERNAME1 }}
+          ORANGEHRM_PASSWORD1: ${{ secrets.ORANGEHRM_PASSWORD1 }}
+        run: npx playwright test --reporter=list,html
 
       - name: Upload Playwright HTML Report
         if: always()
