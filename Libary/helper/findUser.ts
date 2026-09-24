@@ -26,7 +26,7 @@ export class UserHelper {
         await this.systemUsersPage.username_input_edit.clear();
         await this.systemUsersPage.username_input_edit.pressSequentially(`${user.username}123`);
         await this.systemUsersPage.save_edit_btn.click();
-        await this.systemUsersPage.page.waitForTimeout(5000);
+        
     }
 
     async deleteUser(user: UserData): Promise<void> {
