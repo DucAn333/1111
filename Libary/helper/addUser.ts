@@ -1,3 +1,4 @@
+import { time } from 'node:console';
 import { SystemUsers_page } from '../page/option/admin';
 
 type EmployeeData = {
@@ -21,9 +22,11 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
         if (user.employee_name){
             await this.SystemUsers_page.add_employee_name_input.pressSequentially(user.employee_name);
             const Option = this.SystemUsers_page.page.getByText(`${user.employee_name}`, { exact: true }).first();
-            if ( await Option.isVisible()){
-                await Option.click();
-            }
+            await Option.isVisible({timeout:5000});
+            await Option.click();
+            // if ( await Option.isVisible({timeout:5000})){
+            //     await Option.click();
+            // }
         }
         if (user.status){
             await this.SystemUsers_page.add_status_dropdown.click();
