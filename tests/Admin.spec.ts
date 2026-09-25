@@ -101,7 +101,7 @@ test('TC_addUser_30 - chỉnh sửa tài khoản', async ({ choseMenuHelper , us
   
   await choseMenuHelper.chooseAdmin();
   await userHelper.editUser(testUser);
-  //await userHelper.findUser(testUser)
+  
   
 });
 test('TC_addUser_31 - xoá tài khoản', async ({choseMenuHelper , userHelper, SystemUsersPage }) => {
