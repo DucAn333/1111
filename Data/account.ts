@@ -16,3 +16,17 @@ export const Account = [
   password: 'admin123456',
   },
 ];
+export const EndToEndEmployee = [
+  { 
+    user_role: "Admin",
+    employee_name: "Test Employee",
+    status: "Enabled",
+    username: "Nguyen Duc An",
+    password: "Ducan123456",
+    confirm_password: "Ducan123456",
+    expected: true,
+    save: true
+  }
+]
+
+

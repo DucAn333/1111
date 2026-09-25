@@ -32,7 +32,8 @@ export class UserHelper {
     async deleteUser(user: UserData): Promise<void> {
         await this.systemUsersPage.username_filter_input.pressSequentially(`${user.username}123`);
         await this.systemUsersPage.search_btn.click();
-        await this.systemUsersPage.page.locator('.oxd-icon-button.oxd-table-cell-action-space').first().click();
+        await this.systemUsersPage.page.locator(`div.oxd-table-cell > div.oxd-table-cell-actions > button.oxd-icon-button`).first().click();
         await this.systemUsersPage.page.getByRole('button', { name: 'Yes, Delete' }).click();
     }
 }
+

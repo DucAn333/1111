@@ -1,5 +1,5 @@
 import {expect, test } from '../Libary/fixture/index';
-import { LinkURL, Account  } from '../Data/account';
+import { LinkURL, Account ,EndToEndEmployee } from '../Data/account';
 import user from '../Data/addUserEmployee.json'
 import createEmployeeData  from '../Data/addEmployee.json';
 
@@ -83,7 +83,7 @@ test.describe('End to end add user', () => {
     await loginHelper.login(Account[0].username , Account[0].password);
      
   });
-  const testUser = user.add_user_data[0];
+  const testUser = EndToEndEmployee[0];
 test('TC_addEmployee_00 - tạo một employee trước', async ({  choseMenuHelper , createEmployee}) => {
     const Emp = createEmployeeData.add_employee_data[0];
     // tương tự, phải tạo 1 employee trước

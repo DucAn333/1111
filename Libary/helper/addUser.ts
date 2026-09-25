@@ -38,7 +38,7 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
                 await this.SystemUsers_page.add_username_input.pressSequentially(user.username);
                 console.log(user.username)
             }
-            if(user.username ==='RayanCherki'){
+            if(user.username ==='Nguyen Duc An'){
                 await this.SystemUsers_page.add_username_input.pressSequentially(user.username);  
             }
             else{
