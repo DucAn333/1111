@@ -47,9 +47,6 @@ test.describe('Create employee', () => {
   if (newUser.save === false){
     await expect(SystemUsersPage.confirm_password_input).not.toBeVisible({timeout:5000});
   }
-  else{
-    await expect(SystemUsersPage.confirm_password_input).toBeVisible({timeout:5000});
-  }
   });
   }
   

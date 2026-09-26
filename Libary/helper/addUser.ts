@@ -54,7 +54,6 @@ export class addUserHelper {constructor(private SystemUsers_page: SystemUsers_pa
         else{
             await this.SystemUsers_page.save_btn.click();
         }
-        await this.SystemUsers_page.page.waitForTimeout(5000);
 
     }
 

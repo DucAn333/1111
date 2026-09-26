@@ -28,6 +28,7 @@ export class createEmployee {constructor(private EmployeeList_page: EmployeeList
         if (user.employee_id === true){
             const nums = '0123456789';
             const randomNums = Array.from({ length: 4 }, () => nums[Math.floor(Math.random() * nums.length)]).join('');
+            await this.EmployeeList_page.employee_id_input_add.clear();
             await this.EmployeeList_page.employee_id_input_add.pressSequentially(`${randomNums}`);
         }
         if (user.upload === true){
