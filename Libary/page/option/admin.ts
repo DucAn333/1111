@@ -97,8 +97,12 @@ export class SystemUsers_page {
     }
 
     // fillter user
-    get delete_btn() : Locator {
-        return this.page.locator('.oxd-icon-button.oxd-table-cell-action-space').first();
+    delete_btn(username: any): Locator {
+        return this.page
+        .locator('.oxd-table-row')
+        .filter({ hasText: username })
+        .locator('.oxd-icon-button.oxd-table-cell-action-space')
+        .first();
     }
     get edit_btn() : Locator {
         return this.page.locator('button.oxd-icon-button.oxd-table-cell-action-space:has(.bi-pencil-fill)').first()

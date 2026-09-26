@@ -107,7 +107,7 @@ test('TC_addUser_30 - chỉnh sửa tài khoản', async ({ choseMenuHelper , us
 test('TC_addUser_31 - xoá tài khoản', async ({choseMenuHelper , userHelper, SystemUsersPage }) => {
   await choseMenuHelper.chooseAdmin();
   await userHelper.deleteUser(testUser);
-  await expect(SystemUsersPage.delete_btn).toBeHidden();;
+  await expect(SystemUsersPage.delete_btn(testUser.username)).toBeHidden();
 });
 });
 

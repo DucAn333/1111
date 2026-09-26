@@ -22,10 +22,11 @@ test.beforeEach(async ({ page , getLinkHelper }) => {
 });
 
 for (const EMP of createEmployeeData.add_employee_data){
-test(`${EMP.id} - ${EMP.description}`, async ({ loginHelper, choseMenuHelper , createEmployee}) => {
+test(`${EMP.id} - ${EMP.description}`, async ({ loginHelper, choseMenuHelper , createEmployee,EmployeeList_page}) => {
 
     await loginHelper.login(Account[0].username, Account[0].password);
     await choseMenuHelper.choosePIM();
     await createEmployee.addEmployee(EMP);
+    
   });
 }

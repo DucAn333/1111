@@ -23,7 +23,7 @@ export class EmployeeList_page {
     }
 
     get employee_id_input(): Locator {
-        return this.page.locator('.oxd-form-row').filter({ hasText: 'Employee Id' }).locator('input')
+        return this.page.locator(`/html/body/div/div[1]/div[2]/div[2]/div/div/form/div[1]/div[2]/div[1]/div[2]/div/div/div[2]/input`)
     }
 
     get employment_status_dropdown(): Locator {
@@ -83,7 +83,7 @@ export class EmployeeList_page {
     }
  
     get employee_id_input_add(): Locator {
-        return this.page.locator('.oxd-input.oxd-input--active').nth(4);
+        return this.page.locator('.oxd-input-group').filter({ hasText: 'Employee Id' }).locator('input')
     }
  
     get create_login_details_toggle(): Locator {
@@ -112,5 +112,8 @@ export class EmployeeList_page {
  
     get save_btn(): Locator {
         return this.page.getByRole('button', { name: 'Save' })
+    }
+    get Person_details(): Locator {
+        return this.page.getByRole('heading', {name: 'Personal Details',level: 6});
     }
 }

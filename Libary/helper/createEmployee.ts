@@ -25,11 +25,11 @@ export class createEmployee {constructor(private EmployeeList_page: EmployeeList
         if (user.last_name){
             await this.EmployeeList_page.last_name_input.pressSequentially(user.last_name);
         }
-        // if (user.employee_id === true){
-        //     const nums = '0123456789';
-        //     const randomNums = Array.from({ length: 4 }, () => nums[Math.floor(Math.random() * nums.length)]).join('');
-        //     await this.EmployeeList_page.employee_id_input_add.pressSequentially(`${randomNums}`);
-        // }
+        if (user.employee_id === true){
+            const nums = '0123456789';
+            const randomNums = Array.from({ length: 4 }, () => nums[Math.floor(Math.random() * nums.length)]).join('');
+            await this.EmployeeList_page.employee_id_input_add.pressSequentially(`${randomNums}`);
+        }
         if (user.upload === true){
             const fileName = 'IMG.jpg';
             const filePath = path.join(process.cwd(), 'fileUpload', fileName);
@@ -41,6 +41,7 @@ export class createEmployee {constructor(private EmployeeList_page: EmployeeList
         if (user.save === true){
             await this.EmployeeList_page.save_btn.click();
             await expect (this.EmployeeList_page.cancel_btn).toBeEnabled({timeout:5000})
+            
         }
         if (user.save === false){
             await this.EmployeeList_page.cancel_btn.click();
