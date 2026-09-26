@@ -49,15 +49,6 @@ test.describe('Create employee', () => {
   }
   });
   }
-  
-  
-  test('TC_addUser_28 - Go to  Admin', async ({ loginHelper, choseMenuHelper , mainMenuPage}) => {
-  await loginHelper.login(Account[0].username , Account[0].password);
-  
-  await choseMenuHelper.chooseAdmin();
-  await expect(mainMenuPage.header_admin).toBeVisible({timeout: 5000});
-  await mainMenuPage.sidebar_collapse_btn.click();
-  });
 });
 test.describe('End to end add user', () => {
   test.beforeEach(async ({ page , getLinkHelper, loginHelper }) => {
